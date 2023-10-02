@@ -64,7 +64,7 @@ The server will start, and you can access your application at http://localhost:y
 
 ### Dashboard Page
 
-![Dashboard Page](/public/assets/dashboard.png)
+![Dashboard Page](/public/assets/Dashboard.png)
 
 ### Create Car Page
 
