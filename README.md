@@ -64,31 +64,31 @@ The server will start, and you can access your application at http://localhost:y
 
 ### Dashboard Page
 
-![Dashboard Page](/public/assets/Dashboard.png)
+![Dashboard Page](/public/assets/Dashboard.jpeg)
 
 ### Create Car Page
 
-![Create Car Page](/public/assets/Create%20Car.png)
+![Create Car Page](/public/assets/Create%20Car.jpeg)
 
 ### Create Car Notification
 
-![Create Car Notification](/public/assets/Create%20Success.png)
+![Create Car Notification](/public/assets/Create%20Success.jpeg)
 
 ### Update Car Page
 
-![Update Car Page](/public/assets/Update%20Car.png)
+![Update Car Page](/public/assets/Update%20Car.jpeg)
 
 ### Update Car Notification
 
-![Update Car Notification](/public/assets/Update%20Success.png)
+![Update Car Notification](/public/assets/Update%20Success.jpeg)
 
 ### Delete Car Modal
 
-![Delete Car Modal](/public/assets/Delete%20Modal.png)
+![Delete Car Modal](/public/assets/Delete%20Modal.jpeg)
 
 ### Delete Car Notification
 
-![Delete Car Notification](/public/assets/Delete%20Success.png)
+![Delete Car Notification](/public/assets/Delete%20Success.jpeg)
 
 ## Endpoints
 
