@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+<div class="content m-3 container">
+
+  <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a class="text-decoration-none" href="/dashboard">Cars</a></li>
+      <li class="breadcrumb-item" aria-current="page"><a class="text-decoration-none" href="/dashboard">List Car</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Update Car Information</li>
+    </ol>
+  </nav>
+
+  <h1 class="text-title">Update Car Information</h1>
+  <div class="form shadow">
+    <form class="" action="/api/v1/car/<%= cars.id %>" method="post" enctype="multipart/form-data">
+      <div class="row mb-3">
+        <label for="name" class="col-sm-3 col-form-label">Nama</label>
+        <div class="col-sm-9"><input type="text" class="form-control" id="name" name="name" value="<%= cars.name %>"></div>
+      </div>
+      <div class="row mb-3">
+        <label for="price" class="col-sm-3 col-form-label">Sewa Per Hari</label>
+        <div class="col-sm-9"><input type="text" class="form-control" id="sewa" name="price" value="<%= cars.price %>">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="category" class="col-sm-3 col-form-label">Kategori</label>
+        <div class="col-sm-9">
+          <select id="category" name="category" class="form-select">
+            <option value="small" <%= cars.category === 'small' ? 'selected' : '' %>>Small</option>
+            <option value="medium" <%= cars.category === 'medium' ? 'selected' : '' %>>Medium</option>
+            <option value="large" <%= cars.category === 'large' ? 'selected' : '' %>>Large</option>
+          </select>
+        </div>
+      </div>      
+      <div class="row mb-3">
+        <label for="image" class="col-sm-3 col-form-label">Image</label>
+        <div class="col-sm-9"><input class="form-control" type="file" id="image" name="image" value="<%= cars.image %>"></div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
