@@ -139,9 +139,9 @@ POST /api/v1/cars
 ```bash
 Content-Type: multipart/form-data
 
-name = Mitsubishi L300
-price = 22000
-category = medium
+name = Ini Mobil
+price = 1000000
+category = small
 image = [file]
 ```
 
@@ -179,8 +179,8 @@ PUT /api/v1/cars/:id
 ```bash
 Content-Type: multipart/form-data
 
-name = Mitsubishi Colt L300
-price = 200000
+name = Ini Mobil Habis di Update
+price = 5000000
 category = large
 image = [file]
 ```
