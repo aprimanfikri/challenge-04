@@ -1,12 +1,18 @@
 const Car = require("../models/car");
-const fs = require("fs");
-const path = require("path");
+const imagekit = require("../lib/imagekit");
 
 const create = async (req, res) => {
   try {
+    const file = req.file;
+    const split = file.originalname.split(".");
+    const extension = split[split.length - 1];
+    const img = await imagekit.upload({
+      file: file.buffer,
+      fileName: `IMG-${Date.now()}.${extension}`,
+    });
     const car = new Car({
       ...req.body,
-      image: req.file.filename,
+      image: img.url,
     });
     req.session.message = {
       type: "success",
@@ -27,15 +33,14 @@ const update = async (req, res) => {
     const car = await Car.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-    const oldImage = car.image;
-    if (req.file && req.file.filename) {
-      if (oldImage) {
-        const imagePath = path.join("public/images/", oldImage);
-        if (fs.existsSync(imagePath)) {
-          fs.unlinkSync(imagePath);
-        }
-      }
-      car.image = req.file.filename;
+    if (req.file) {
+      const split = req.file.originalname.split(".");
+      const extension = split[split.length - 1];
+      const newImg = await imagekit.upload({
+        file: req.file.buffer,
+        fileName: `IMG-${Date.now()}.${extension}`,
+      });
+      car.image = newImg.url;
     }
     await car.save();
     req.session.message = {
@@ -53,11 +58,7 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
-    const car = await Car.findByIdAndDelete(req.params.id);
-    const imagePath = path.join("public/images/", car.image);
-    if (imagePath) {
-      fs.unlinkSync(imagePath);
-    }
+    await Car.findByIdAndDelete(req.params.id);
     req.session.message = {
       type: "dark",
       message: "Car has been deleted successfully",

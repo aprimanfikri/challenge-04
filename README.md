@@ -110,26 +110,16 @@ GET /api/v1/cars
   "message": "Get all cars",
   "result": [
     {
-      "_id": "651b210546d655d751c21a71",
-      "name": "Toyota Corolla",
-      "price": 25000,
-      "category": "medium",
-      "image": "car-1696276741798.jpg",
-      "createdAt": "2023-10-02T19:59:01.856Z",
-      "updatedAt": "2023-10-02T19:59:01.856Z",
+      "_id": "65203532bb5bb3160527ef85",
+      "name": "Ini Mobil",
+      "price": 1000000,
+      "category": "small",
+      "image": "https://ik.imagekit.io/icaruswalks/IMG-1696609583260_65MGgzbrT.jpg",
+      "createdAt": "2023-10-06T16:26:26.136Z",
+      "updatedAt": "2023-10-06T16:26:26.136Z",
       "__v": 0
     },
-    {
-      "_id": "651b211f46d655d751c21a74",
-      "name": "Honda Civic",
-      "price": 23000,
-      "category": "medium",
-      "image": "car-1696276767467.jpeg",
-      "createdAt": "2023-10-02T19:59:27.493Z",
-      "updatedAt": "2023-10-02T19:59:27.493Z",
-      "__v": 0
-    },
-    // Other car entries...
+    // other cars entries
   ]
 }
 ```
@@ -159,18 +149,18 @@ image = [file]
 
 ```bash
 {
-    "status": "success",
-    "message": "Car has been created successfully",
-    "result": {
-        "name": "Mitsubishi L300",
-        "price": 22000,
-        "category": "large",
-        "image": "car-1696278757821.jpg",
-        "_id": "651b28e54e5df748547a0de3",
-        "createdAt": "2023-10-02T20:32:37.911Z",
-        "updatedAt": "2023-10-02T20:32:37.911Z",
-        "__v": 0
-    }
+  "status": "success",
+  "message": "Car has been created successfully",
+  "result": {
+    "name": "Ini Mobil",
+    "price": 1000000,
+    "category": "small",
+    "image": "https://ik.imagekit.io/icaruswalks/IMG-1696609583260_65MGgzbrT.jpg",
+    "_id": "65203532bb5bb3160527ef85",
+    "createdAt": "2023-10-06T16:26:26.136Z",
+    "updatedAt": "2023-10-06T16:26:26.136Z",
+    "__v": 0
+  }
 }
 ```
 
@@ -199,18 +189,18 @@ image = [file]
 
 ```bash
 {
-    "status": "success",
-    "message": "Car has been updated successfully",
-    "result": {
-        "_id": "651b28e54e5df748547a0de3",
-        "name": "Mitsubishi Colt L300",
-        "price": 200000,
-        "category": "large",
-        "image": "car-1696278892382.jpg",
-        "createdAt": "2023-10-02T20:32:37.911Z",
-        "updatedAt": "2023-10-02T20:34:52.429Z",
-        "__v": 0
-    }
+  "status": "success",
+  "message": "Car has been updated successfully",
+  "result": {
+    "_id": "65203532bb5bb3160527ef85",
+    "name": "Ini Mobil Habis di Update",
+    "price": 5000000,
+    "category": "large",
+    "image": "https://ik.imagekit.io/icaruswalks/IMG-1696609701981_ZWHKTeRDA.png",
+    "createdAt": "2023-10-06T16:26:26.136Z",
+    "updatedAt": "2023-10-06T16:28:24.642Z",
+    "__v": 0
+  }
 }
 ```
 
@@ -228,18 +218,18 @@ GET /api/v1/cars/:id
 
 ```bash
 {
-    "status": "success",
-    "message": "Get one car",
-    "result": {
-        "_id": "651b28e54e5df748547a0de3",
-        "name": "Mitsubishi Colt L300",
-        "price": 200000,
-        "category": "large",
-        "image": "car-1696278892382.jpg",
-        "createdAt": "2023-10-02T20:32:37.911Z",
-        "updatedAt": "2023-10-02T20:34:52.429Z",
-        "__v": 0
-    }
+  "status": "success",
+  "message": "Get one car",
+  "result": {
+    "_id": "65203532bb5bb3160527ef85",
+    "name": "Ini Mobil Habis di Update",
+    "price": 5000000,
+    "category": "large",
+    "image": "https://ik.imagekit.io/icaruswalks/IMG-1696609701981_ZWHKTeRDA.png",
+    "createdAt": "2023-10-06T16:26:26.136Z",
+    "updatedAt": "2023-10-06T16:28:24.642Z",
+    "__v": 0
+  }
 }
 ```
 
@@ -257,18 +247,18 @@ DELETE /api/v1/cars/:id
 
 ```bash
 {
-    "status": "success",
-    "message": "Car has been deleted successfully",
-    "result": {
-        "_id": "651b2b14483b482930361b10",
-        "name": "Mitsubishi Colt L300",
-        "price": 200000,
-        "category": "large",
-        "image": "car-1696279327553.jpg",
-        "createdAt": "2023-10-02T20:41:56.081Z",
-        "updatedAt": "2023-10-02T20:42:07.570Z",
-        "__v": 0
-    }
+  "status": "success",
+  "message": "Car has been deleted successfully",
+  "result": {
+    "_id": "65203532bb5bb3160527ef85",
+    "name": "Ini Mobil Habis di Update",
+    "price": 5000000,
+    "category": "large",
+    "image": "https://ik.imagekit.io/icaruswalks/IMG-1696609701981_ZWHKTeRDA.png",
+    "createdAt": "2023-10-06T16:26:26.136Z",
+    "updatedAt": "2023-10-06T16:28:24.642Z",
+    "__v": 0
+  }
 }
 ```
 
