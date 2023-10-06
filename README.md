@@ -64,9 +64,21 @@ The server will start, and you can access your application at http://localhost:y
 
 ### Dashboard Page
 
+**Endpoint**
+
+```bash
+/admin/dashboard
+```
+
 ![Dashboard Page](/public/assets/Dashboard.jpeg)
 
 ### Create Car Page
+
+**Endpoint**
+
+```bash
+/admin/create
+```
 
 ![Create Car Page](/public/assets/Create%20Car.jpeg)
 
@@ -75,6 +87,12 @@ The server will start, and you can access your application at http://localhost:y
 ![Create Car Notification](/public/assets/Create%20Success.jpeg)
 
 ### Update Car Page
+
+**Endpoint**
+
+```bash
+/admin/update/:id
+```
 
 ![Update Car Page](/public/assets/Update%20Car.jpeg)
 
