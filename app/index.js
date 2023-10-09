@@ -5,11 +5,8 @@ const session = require("express-session");
 const flash = require("express-flash");
 const morgan = require("morgan");
 const formatDate = require("../utils/date");
-const car = require("../routes/car");
-const cars = require("../routes/cars");
-const render = require("../routes/render");
-const ApiError = require("../utils/apiError");
 const errorHandler = require("../controllers/error");
+const routes = require("../routes");
 
 const app = express();
 
@@ -37,19 +34,7 @@ app.use((req, res, next) => {
 
 app.use(flash());
 
-app.get("/api/v1", (req, res) => {
-  res.status(200).json({
-    status: "success",
-    message: "API is working fine",
-  });
-});
-app.use("/admin", render);
-app.use("/api/v1/car", car);
-app.use("/api/v1/cars", cars);
-
-app.all("*", (req, res, next) => {
-  next(new ApiError(404, `Route ${req.params[0]} not found`));
-});
+app.use(routes);
 
 app.use(errorHandler);
 

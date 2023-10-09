@@ -18,6 +18,7 @@
     - [Delete Car Modal](#delete-car-modal)
     - [Delete Car Notification](#delete-car-notification)
   - [Endpoints](#endpoints)
+    - [Test API](#test-api)
     - [Get All Cars](#get-all-cars)
     - [Create car](#create-car)
     - [Update Car](#update-car)
@@ -110,6 +111,25 @@ The server will start, and you can access your application at http://localhost:y
 
 ## Endpoints
 
+### Test API
+
+Test the API to make sure it's working.
+
+**Endpoint:**
+
+```bash
+GET /api/v1/
+```
+
+**Response:**
+
+```bash
+{
+  "status": "success",
+  "message": "API is working fine"
+}
+```
+
 ### Get All Cars
 
 Retrieve a list of all cars in the system.
@@ -126,7 +146,7 @@ GET /api/v1/cars
 {
   "status": "success",
   "message": "Get all cars",
-  "result": [
+  "data": [
     {
       "_id": "65203532bb5bb3160527ef85",
       "name": "Ini Mobil",
@@ -169,7 +189,7 @@ image = [file]
 {
   "status": "success",
   "message": "Car has been created successfully",
-  "result": {
+  "data": {
     "name": "Ini Mobil",
     "price": 1000000,
     "category": "small",
@@ -209,7 +229,7 @@ image = [file]
 {
   "status": "success",
   "message": "Car has been updated successfully",
-  "result": {
+  "data": {
     "_id": "65203532bb5bb3160527ef85",
     "name": "Ini Mobil Habis di Update",
     "price": 5000000,
@@ -238,7 +258,7 @@ GET /api/v1/cars/:id
 {
   "status": "success",
   "message": "Get one car",
-  "result": {
+  "data": {
     "_id": "65203532bb5bb3160527ef85",
     "name": "Ini Mobil Habis di Update",
     "price": 5000000,
@@ -267,7 +287,7 @@ DELETE /api/v1/cars/:id
 {
   "status": "success",
   "message": "Car has been deleted successfully",
-  "result": {
+  "data": {
     "_id": "65203532bb5bb3160527ef85",
     "name": "Ini Mobil Habis di Update",
     "price": 5000000,
