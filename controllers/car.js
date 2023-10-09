@@ -1,7 +1,8 @@
 const Car = require("../models/car");
 const imagekit = require("../lib/imagekit");
+const ApiError = require("../utils/apiError");
 
-const create = async (req, res) => {
+const create = async (req, res, next) => {
   try {
     const file = req.file;
     const split = file.originalname.split(".");
@@ -21,18 +22,18 @@ const create = async (req, res) => {
     await car.save();
     res.redirect("/admin/dashboard");
   } catch (error) {
-    res.status(500).json({
-      status: "failed",
-      message: error.message,
-    });
+    next(new ApiError(500, "Failed to create car: " + error.message));
   }
 };
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
   try {
     const car = await Car.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
+    if (!car) {
+      return next(new ApiError(404, `Car with id ${req.params.id} not found`));
+    }
     if (req.file) {
       const split = req.file.originalname.split(".");
       const extension = split[split.length - 1];
@@ -49,26 +50,23 @@ const update = async (req, res) => {
     };
     res.redirect("/admin/dashboard");
   } catch (error) {
-    res.status(500).json({
-      status: "failed",
-      message: error.message,
-    });
+    next(new ApiError(500, "Failed to update car: " + error.message));
   }
 };
 
-const remove = async (req, res) => {
+const remove = async (req, res, next) => {
   try {
-    await Car.findByIdAndDelete(req.params.id);
+    const car = await Car.findByIdAndDelete(req.params.id);
+    if (!car) {
+      return next(new ApiError(404, `Car with id ${req.params.id} not found`));
+    }
     req.session.message = {
       type: "dark",
       message: "Car has been deleted successfully",
     };
     res.redirect("/admin/dashboard");
   } catch (error) {
-    res.status(500).json({
-      status: "failed",
-      message: error.message,
-    });
+    next(new ApiError(500, "Failed to delete car: " + error.message));
   }
 };
 

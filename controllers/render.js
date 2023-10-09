@@ -1,6 +1,7 @@
 const Car = require("../models/car");
+const ApiError = require("../utils/apiError");
 
-const dashboard = async (req, res) => {
+const dashboard = async (req, res, next) => {
   try {
     let query = {};
     if (req.query.category) {
@@ -17,10 +18,7 @@ const dashboard = async (req, res) => {
       title: "Dashboard",
     });
   } catch (error) {
-    res.status(500).json({
-      status: "failed",
-      message: error.message,
-    });
+    next(new ApiError(500, "Failed to find cars: " + error.message));
   }
 };
 
@@ -31,7 +29,7 @@ const create = (req, res) => {
   });
 };
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
   try {
     const car = await Car.findByIdAndUpdate(req.params.id);
     res.render("update", {
@@ -40,10 +38,7 @@ const update = async (req, res) => {
       query: req.query,
     });
   } catch (error) {
-    res.status(500).json({
-      status: "failed",
-      message: error.message,
-    });
+    next(new ApiError(500, "Failed to update car: " + error.message));
   }
 };
 

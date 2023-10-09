@@ -1,4 +1,5 @@
 const multer = require("multer");
+const ApiError = require("../utils/apiError");
 
 const fileFilter = (req, file, cb) => {
   if (
@@ -8,7 +9,7 @@ const fileFilter = (req, file, cb) => {
   ) {
     cb(null, true);
   } else {
-    cb(new Error("Only .png, .jpg, and .jpeg formats are allowed!"), false);
+    cb(new ApiError(400, "Only image files are allowed!"), false);
   }
 };
 

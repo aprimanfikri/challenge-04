@@ -8,6 +8,8 @@ const formatDate = require("../utils/date");
 const car = require("../routes/car");
 const cars = require("../routes/cars");
 const render = require("../routes/render");
+const ApiError = require("../utils/apiError");
+const errorHandler = require("../controllers/error");
 
 const app = express();
 
@@ -44,5 +46,11 @@ app.get("/api/v1", (req, res) => {
 app.use("/admin", render);
 app.use("/api/v1/car", car);
 app.use("/api/v1/cars", cars);
+
+app.all("*", (req, res, next) => {
+  next(new ApiError(404, `Route ${req.params[0]} not found`));
+});
+
+app.use(errorHandler);
 
 module.exports = app;

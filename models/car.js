@@ -13,6 +13,8 @@ const car = new mongoose.Schema(
     },
     image: {
       type: String,
+      default:
+        "https://seasideautomotive.com/wp-content/themes/motors-child/assets/images/automanager_placeholders/plchldr798automanager.png",
     },
   },
   {
